@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+{% block body %}
+<section id="form"><!--form-->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-1">
+					<div class="login-form"><!--login form-->
+						<h1>Login Form</h1>
+						<form action="" method="POST" style="labe">
+                             {% csrf_token %}
+                             {% for fm in form %}
+                             {{fm.label_tag}} {{fm}} {{fm.errors|striptags}}<br><br>
+                                {% endfor %}
+							<a href="{% url 'changepass'%}" style=" float-right margin-left:200px">Forget Password?</a>
+                            <input type="submit" class="btn btn-primary text-white" value="Submit">
+							<a href="{% url 'signup'%}"><span style="color:black;">Create Your account</span></a>
+                        </form>
+					</div><!--/login form-->
+				</div>
+			</div>
+		</div>
+{% endblock %}
